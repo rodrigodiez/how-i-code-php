@@ -4,7 +4,7 @@ namespace RodrigoDiez\HowICodePHP\Nasa\APOD\Client;
 
 use GuzzleHttp\Client as HttpClient;
 use RodrigoDiez\HowICodePHP\Nasa\APOD\APOD;
-
+use RodrigoDiez\HowICodePHP\Nasa\APOD\Client\Exception\ClientException;
 
 class Client
 {
@@ -29,7 +29,13 @@ class Client
                 'api_key' => $this->apiKey,
                 'date' => $datetime->format('Y-m-d')
             ]
-        ]);
+            ]
+        );
+
+        if ($response->getStatusCode() !== 200) {
+
+            throw new ClientException("Response was not successfull");
+        }
 
         $responseBody = json_decode((string) $response->getBody());
 
