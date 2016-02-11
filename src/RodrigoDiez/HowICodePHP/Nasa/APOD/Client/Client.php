@@ -5,7 +5,6 @@ namespace RodrigoDiez\HowICodePHP\Nasa\APOD\Client;
 use GuzzleHttp\Client as HttpClient;
 use RodrigoDiez\HowICodePHP\Nasa\APOD\APOD;
 
-
 class Client
 {
     private $httpClient;
@@ -29,7 +28,8 @@ class Client
                 'api_key' => $this->apiKey,
                 'date' => $datetime->format('Y-m-d')
             ]
-        ]);
+            ]
+        );
 
         $responseBody = json_decode((string) $response->getBody());
 
