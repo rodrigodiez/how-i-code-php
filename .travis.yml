@@ -6,8 +6,7 @@ php:
   - hhvm
   - nightly
 
-install:
-  - composer install
+install: composer install --dev
 
 script:
   - bin/phpcs src/ --standard=PSR2
