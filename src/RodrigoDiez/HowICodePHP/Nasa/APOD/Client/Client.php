@@ -4,6 +4,7 @@ namespace RodrigoDiez\HowICodePHP\Nasa\APOD\Client;
 
 use GuzzleHttp\Client as HttpClient;
 use RodrigoDiez\HowICodePHP\Nasa\APOD\APOD;
+use RodrigoDiez\HowICodePHP\Nasa\APOD\Client\Exception\ClientException;
 
 class Client
 {
@@ -30,6 +31,11 @@ class Client
             ]
             ]
         );
+
+        if ($response->getStatusCode() !== 200) {
+
+            throw new ClientException("Response was not successfull");
+        }
 
         $responseBody = json_decode((string) $response->getBody());
 
