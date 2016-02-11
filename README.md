@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rodrigodiez/how-i-code-php.svg?branch=master)](https://travis-ci.org/rodrigodiez/how-i-code-php)
+
 # How I code a php library
 This repository is a small example of how I approach development of php code, specially:
 
