@@ -25,6 +25,7 @@ class ClientSpec extends ObjectBehavior
     {
         $responseBodyStream->__toString()->willReturn(json_encode($this->defaultResponseBody));
         $response->getBody()->willReturn($responseBodyStream);
+        $response->getStatusCode()->willReturn(200);
 
         $this->beConstructedWith($httpClient, $this->defaultEndpoint, $this->defaultApiKey);
         $httpClient->request(Argument::any(), Argument::any(), Argument::any())->willReturn($response);
@@ -167,5 +168,12 @@ class ClientSpec extends ObjectBehavior
 
         $datetime = $apod->getDateTime();
         $datetime->format('Y-m-d')->shouldBe($date);
+    }
+
+    function it_throws_an_exception_if_response_was_not_successfull(Client $httpClient, ResponseInterface $response, StreamInterface $responseBodyStream)
+    {
+        $response->getStatusCode()->willReturn(500);
+
+        $this->shouldThrow('RodrigoDiez\HowICodePHP\Nasa\APOD\Client\Exception\ClientException')->duringGet();
     }
 }
