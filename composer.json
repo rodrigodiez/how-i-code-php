@@ -11,7 +11,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "guzzlehttp/guzzle": "^6.1"
+        "php": "~5.5",
+        "guzzlehttp/guzzle": "~6.1"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0"
