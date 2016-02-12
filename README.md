@@ -10,5 +10,6 @@ This repository is a small example of how I approach development of php code, sp
 # How to run tests
 ```
 composer install
+bin/phpspec run
 bin/phpcs src/ --standard=PSR2
 ```
