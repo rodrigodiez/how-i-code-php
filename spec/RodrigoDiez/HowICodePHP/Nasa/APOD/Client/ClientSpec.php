@@ -36,6 +36,11 @@ class ClientSpec extends ObjectBehavior
         $this->shouldHaveType('RodrigoDiez\HowICodePHP\Nasa\APOD\Client\Client');
     }
 
+    function it_implements_ClientInterface()
+    {
+        $this->shouldImplement('RodrigoDiez\HowICodePHP\Nasa\APOD\Client\ClientInterface');
+    }
+
     function it_makes_a_get_request_to_provided_endpoint(Client $httpClient, ResponseInterface $response)
     {
         $endpoint = 'https://api.nasa.gov/planetary/apod';
