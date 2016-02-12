@@ -6,7 +6,7 @@ use GuzzleHttp\Client as HttpClient;
 use RodrigoDiez\HowICodePHP\Nasa\APOD\APOD;
 use RodrigoDiez\HowICodePHP\Nasa\APOD\Client\Exception\ClientException;
 
-class Client
+class Client implements ClientInterface
 {
     private $httpClient;
     private $endpoint;
